@@ -83,7 +83,6 @@ static struct page_info *alloc_largest_available(unsigned long size,
 		} else {
 			gfp |= GFP_KERNEL;
 		}
-
 		gfp |= __GFP_ZERO;
 		page = alloc_pages(gfp, orders[i]);
 		if (!page)
@@ -194,6 +193,7 @@ static int ion_iommu_heap_allocate(struct ion_heap *heap,
 	} else {
 		return -ENOMEM;
 	}
+
 
 	sg_free_table(buffer->sg_table);
 err2:
